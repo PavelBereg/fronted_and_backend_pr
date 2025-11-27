@@ -10,17 +10,13 @@
     <!-- ШАПКА САЙТА -->
     <header>
         <div class="logo">
-            <!-- Убедитесь, что имя файла совпадает с тем, что у вас в папке assets/img -->
-            <img src="assets/img/revo_logo.png" alt="Логотип Revo Coffee">
+            <img src="assets/img/logo.png" alt="Логотип Revo Coffee">
         </div>
 
         <div class="header-actions">
-            <!-- Иконка корзины -->
             <a href="#" class="cart">
                 <img src="assets/icons/cart.png" alt="Корзина">
             </a>
-
-            <!-- Навигация -->
             <nav>
                 <ul>
                     <li><a href="#">ГЛАВНАЯ</a></li>
@@ -39,10 +35,12 @@
 
         <!-- СЕКЦИЯ 1: ГЛАВНЫЙ ЭКРАН -->
         <section class="hero">
+
             <h1>ВАШ <br> ПЕРСОНАЛЬНЫЙ <br> КОФЕ</h1>
             <p class="subtitle">Создан специально для вас</p>
             <button class="play-btn">
-                <img src="assets/icons/play.svg" alt="Смотреть видео">
+                <!-- Если иконки play нет, можно просто написать текст -->
+                <span>Смотреть видео</span>
             </button>
         </section>
 
@@ -54,30 +52,26 @@
             </div>
 
             <div class="features-grid">
-                <!-- Карточка 1 -->
                 <article class="feature-item">
-                    <img src="assets/icons/source_icon.png" alt="Источник">
+                    <img src="assets/icons/icon_source.png" alt="Источник">
                     <h3>Источник</h3>
                     <p>Зерна Арабики и Робусты высшего качества, соответствующие мировым стандартам.</p>
                 </article>
 
-                <!-- Карточка 2 -->
                 <article class="feature-item">
-                    <img src="assets/icons/quality_icon.png" alt="Качество">
+                    <img src="assets/icons/icon_quality.png" alt="Качество">
                     <h3>Качество</h3>
                     <p>Каждое зерно — это результат кропотливой работы лучших мастеров кофейного дела.</p>
                 </article>
 
-                <!-- Карточка 3 -->
                 <article class="feature-item">
-                    <img src="assets/icons/nut_icon.png" alt="Зерна">
+                    <img src="assets/icons/icon_bean.png" alt="Зерна">
                     <h3>Отборные зерна</h3>
                     <p>70% вкуса чашки кофе зависит от происхождения и качества зеленых зерен.</p>
                 </article>
 
-                <!-- Карточка 4 -->
                 <article class="feature-item">
-                    <img src="assets/icons/preparation_icon.png" alt="Обжарка">
+                    <img src="assets/icons/icon_brew.png" alt="Обжарка">
                     <h3>Обжарка</h3>
                     <p>Кофейные зерна раскрывают свой потенциал благодаря тщательной и строгой обжарке.</p>
                 </article>
@@ -94,7 +88,7 @@
             <div class="products-grid">
                 <!-- Товар 1 -->
                 <article class="product-card">
-                    <img src="assets/img/revo_morning.png" alt="Revo Morning">
+                    <img src="assets/img/coffee_brown.png" alt="Revo Morning">
                     <div class="product-info">
                         <span class="price">99.000</span>
                         <h3>REVO Morning</h3>
@@ -108,7 +102,7 @@
 
                 <!-- Товар 2 -->
                 <article class="product-card">
-                    <img src="assets/img/revo_everyday.png" alt="Revo Everyday">
+                    <img src="assets/img/coffee_blue.png" alt="Revo Everyday">
                     <div class="product-info">
                         <span class="price">85.000</span>
                         <h3>REVO Everyday</h3>
@@ -122,7 +116,7 @@
 
                 <!-- Товар 3 -->
                 <article class="product-card">
-                    <img src="assets/img/revo_origin.png" alt="Revo Origin">
+                    <img src="assets/img/coffee_white.png" alt="Revo Origin">
                     <div class="product-info">
                         <span class="price">139.000</span>
                         <h3>REVO Origin</h3>
@@ -136,7 +130,7 @@
 
                 <!-- Товар 4 -->
                 <article class="product-card">
-                    <img src="assets/img/revo_dam_da.png" alt="Revo Đậm Đà">
+                    <img src="assets/img/coffee_black.png" alt="Revo Đậm Đà">
                     <div class="product-info">
                         <span class="price">75.000</span>
                         <h3>REVO Traditional</h3>
@@ -159,22 +153,22 @@
 
             <div class="giftset-content">
                 <div class="giftset-image">
-                    <img src="assets/img/giftset_main.png" alt="Подарочный набор кофе">
+                    <img src="assets/img/giftset.png" alt="Подарочный набор кофе">
                 </div>
 
                 <div class="giftset-details">
                     <span class="price">285.000</span>
                     <h3>Набор «Вьетнамский кофе фин»</h3>
-                    <p>Идеальный подарок для ценителей. Отобранные зерна Revo, обжаренные по секретной технологии известных мастеров. Сочетание любви и страсти создателей дарит вам чашку чистого кофе.</p>
+                    <p>Идеальный подарок для ценителей. Отобранные зерна Revo.</p>
 
                     <div class="specs">
                         <div class="spec-item">
-                            <img src="assets/icons/bean_icon.png" alt="Зерно">
+                            <img src="assets/icons/icon_bean.png" alt="Зерно">
                             <span>Тип зерна <br> Fine Robusta Blend</span>
                         </div>
                         <div class="spec-item">
-                            <img src="assets/icons/mountain_icon.png" alt="Гора">
-                            <span>Высота произрастания <br> 700 - 800м</span>
+                            <img src="assets/icons/icon_mountain.png" alt="Гора">
+                            <span>Высота <br> 700 - 800м</span>
                         </div>
                     </div>
 
@@ -203,7 +197,6 @@
                             <del class="old-price">155.000</del>
                         </div>
                         <h3>Комбо Revo: Насыщенный</h3>
-                        <p>Высокое содержание кофеина в Revo Traditional поможет вам оставаться бодрым для работы.</p>
                         <div class="buttons">
                             <button class="btn-buy">КУПИТЬ</button>
                             <button class="btn-details">ПОДРОБНЕЕ</button>
@@ -220,7 +213,6 @@
                             <del class="old-price">165.000</del>
                         </div>
                         <h3>Комбо Revo: На каждый день</h3>
-                        <p>Revo Everyday — это баланс между горечью Робусты и изысканным ароматом.</p>
                         <div class="buttons">
                             <button class="btn-buy">КУПИТЬ</button>
                             <button class="btn-details">ПОДРОБНЕЕ</button>
@@ -237,7 +229,6 @@
                             <del class="old-price">260.000</del>
                         </div>
                         <h3>Комбо Revo: Honey</h3>
-                        <p>Назван в честь метода обработки «Honey» для зерен Арабики, дающего мягкую сладость.</p>
                         <div class="buttons">
                             <button class="btn-buy">КУПИТЬ</button>
                             <button class="btn-details">ПОДРОБНЕЕ</button>

@@ -1,4 +1,7 @@
+/* 1. Подключение шрифтов */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Nunito:wght@400;600&display=swap');
+
+/* 2. Сброс стилей и базовые настройки */
 * {
     margin: 0;
     padding: 0;
@@ -11,9 +14,9 @@ html {
 
 body {
     font-family: 'Nunito', sans-serif;
-    color: #415167; /* Темно-синий цвет текста */
+    color: #415167;
     line-height: 1.5;
-    background-color: #EDF0F5; /* Светло-серый фон */
+    background-color: #EDF0F5;
 }
 
 ul {
@@ -30,6 +33,7 @@ img {
     display: block;
 }
 
+/* HEADER (Меню) */
 .header {
     background-color: #fff;
     padding: 1rem 2rem;
@@ -45,6 +49,7 @@ img {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 .header__logo img {
@@ -60,6 +65,7 @@ img {
 .nav__list {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .nav__link {
@@ -72,6 +78,7 @@ img {
     color: #C7A17A;
 }
 
+/* BUTTONS (Кнопки) */
 .button {
     display: inline-block;
     padding: 10px 24px;
@@ -81,6 +88,18 @@ img {
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+}
+
+.button--play {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    margin-top: 20px;
+}
+
+.button--play:hover {
+    background-color: white;
+    color: #415167;
 }
 
 .button--primary {
@@ -103,6 +122,7 @@ img {
     text-decoration: underline;
 }
 
+/* --- HERO (Главный экран) --- */
 .hero {
     background-color: #415167;
     color: white;
@@ -122,9 +142,10 @@ img {
     font-size: 18px;
 }
 
+/* --- ОБЩИЕ СТИЛИ СЕКЦИЙ --- */
 .section {
     padding: 60px 20px;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -146,10 +167,17 @@ img {
     margin-bottom: 5px;
 }
 
-.features__grid {
+/* ГРИД СЕТКИ (Features & Products) */
+/* Desktop First: Сначала задаем 4 колонки */
+.features__grid, 
+.products__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Адаптивная сетка */
+    grid-template-columns: repeat(4, 1fr); /* 4 равные колонки */
     gap: 30px;
+}
+
+/* КАРТОЧКА ПРЕИМУЩЕСТВА*/
+.feature {
     text-align: center;
 }
 
@@ -160,14 +188,10 @@ img {
 
 .feature__title {
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.products__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
+/* КАРТОЧКА ТОВАРА */
 .card {
     background: white;
     padding: 20px;
@@ -175,6 +199,9 @@ img {
     text-align: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover {
@@ -201,17 +228,134 @@ img {
     margin-bottom: 5px;
 }
 
+.card__desc {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
 .card__buttons {
-    margin-top: 15px;
+    margin-top: auto; /* Прижимает кнопки к низу карточки */
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
+/* ПОДАРОЧНЫЙ НАБОР (Giftset)*/
+.giftset__container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.giftset__img {
+    flex: 1; /* Занимает половину места */
+    max-width: 400px;
+}
+
+.giftset__info {
+    flex: 1; /* Занимает вторую половину */
+}
+
+.giftset__desc {
+    margin-bottom: 20px;
+}
+
+/* КОМБО СЕКЦИЯ */
+.combo .products__grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* FOOTER */
 .footer {
     background-color: #EDF0F5;
     text-align: center;
     padding: 20px;
     margin-top: 50px;
     color: #888;
+    border-top: 1px solid #ddd;
+}
+
+
+/* АДАПТИВНОСТЬ (MEDIA QUERIES) - ПРАКТИКА 4 */
+
+/* 1. Планшеты и маленькие ноутбуки (меньше 1024px) */
+@media (max-width: 1024px) {
+    .hero__title {
+        font-size: 36px;
+    }
+    
+    /* Сетки перестраиваются в 2 колонки */
+    .features__grid, 
+    .products__grid,
+    .combo .products__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Подарочный набор: в столбик */
+    .giftset__container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .giftset__img {
+        max-width: 80%;
+        margin: 0 auto 20px;
+    }
+}
+
+/* 2. Мобильные устройства (меньше 768px) */
+@media (max-width: 768px) {
+    /* Шапка меняет ориентацию */
+    .header__container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header__actions {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav__list {
+        justify-content: center;
+    }
+    
+    .hero {
+        padding: 40px 15px;
+    }
+    
+    /* Все сетки в 1 колонку */
+    .features__grid, 
+    .products__grid,
+    .combo .products__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 3. Маленькие экраны (меньше 480px) */
+@media (max-width: 480px) {
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .hero__title {
+        font-size: 24px;
+    }
+    
+    .button {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
 }

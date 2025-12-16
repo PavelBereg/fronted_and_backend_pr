@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revo Coffee — Ваш идеальный кофе</title>
+    <!-- Основные стили -->
     <link rel="stylesheet" href="styles/style.css">
+    <!-- Мобильные стили (подключаются только если экран меньше 1024px) -->
+    <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 1024px)">
 </head>
 <body>
 
@@ -19,7 +22,15 @@
                     <img src="assets/icons/cart.png" alt="Корзина">
                 </a>
 
-                <nav class="nav">
+                <!-- Кнопка Гамбургер (видна только на мобильных) -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                    <span class="menu-toggle__line"></span>
+                </button>
+
+                <!-- Основная навигация -->
+                <nav class="nav" id="mainNav">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#hero" class="nav__link">ГЛАВНАЯ</a></li>
                         <li class="nav__item"><a href="#products" class="nav__link">КОФЕ</a></li>
@@ -206,5 +217,10 @@
         <p class="footer__text">© Revo Coffee Việt Nam — 2018</p>
     </footer>
 
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
+
+    <!-- Скрипты -->
+    <script src="scripts/menu.js"></script>
 </body>
 </html>

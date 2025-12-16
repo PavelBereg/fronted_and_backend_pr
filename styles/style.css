@@ -1,6 +1,16 @@
 /* 1. Подключение шрифтов */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Nunito:wght@400;600&display=swap');
 
+/* Переменные */
+:root {
+    --primary-color: #C7A17A;
+    --primary-dark: #b08d68;
+    --text-color: #415167;
+    --bg-color: #EDF0F5;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
 /* 2. Сброс стилей и базовые настройки */
 * {
     margin: 0;
@@ -14,9 +24,9 @@ html {
 
 body {
     font-family: 'Nunito', sans-serif;
-    color: #415167;
+    color: var(--text-color);
     line-height: 1.5;
-    background-color: #EDF0F5;
+    background-color: var(--bg-color);
 }
 
 ul {
@@ -35,7 +45,7 @@ img {
 
 /* HEADER (Меню) */
 .header {
-    background-color: #fff;
+    background-color: var(--white);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -62,6 +72,38 @@ img {
     gap: 20px;
 }
 
+/* Гамбургер-кнопка (скрыта на десктопе) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle__line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* Анимация гамбургера */
+.menu-toggle.active .menu-toggle__line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+.menu-toggle.active .menu-toggle__line:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .menu-toggle__line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
 .nav__list {
     display: flex;
     gap: 20px;
@@ -75,7 +117,7 @@ img {
 }
 
 .nav__link:hover {
-    color: #C7A17A;
+    color: var(--primary-color);
 }
 
 /* BUTTONS (Кнопки) */
@@ -86,7 +128,7 @@ img {
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     border: 2px solid transparent;
 }
 
@@ -98,23 +140,23 @@ img {
 }
 
 .button--play:hover {
-    background-color: white;
-    color: #415167;
+    background-color: var(--white);
+    color: var(--text-color);
 }
 
 .button--primary {
-    background-color: #C7A17A;
+    background-color: var(--primary-color);
     color: white;
 }
 
 .button--primary:hover {
-    background-color: #b08d68;
+    background-color: var(--primary-dark);
     transform: translateY(-2px);
 }
 
 .button--outline {
     background-color: transparent;
-    color: #415167;
+    color: var(--text-color);
     border: none;
 }
 
@@ -122,9 +164,42 @@ img {
     text-decoration: underline;
 }
 
+/* КНОПКА НАВЕРХ */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
 /* --- HERO (Главный экран) --- */
 .hero {
-    background-color: #415167;
+    background-color: var(--text-color);
     color: white;
     text-align: center;
     padding: 80px 20px;
@@ -158,25 +233,24 @@ img {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     font-weight: 900;
-    color: #415167;
+    color: var(--text-color);
     text-transform: uppercase;
 }
 
 .section__subtitle {
-    color: #C7A17A;
+    color: var(--primary-color);
     margin-bottom: 5px;
 }
 
-/* ГРИД СЕТКИ (Features & Products) */
-/* Desktop First: Сначала задаем 4 колонки */
+/* ГРИД СЕТКИ */
 .features__grid, 
 .products__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 равные колонки */
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 
-/* КАРТОЧКА ПРЕИМУЩЕСТВА*/
+/* КАРТОЧКА ПРЕИМУЩЕСТВА */
 .feature {
     text-align: center;
 }
@@ -193,7 +267,7 @@ img {
 
 /* КАРТОЧКА ТОВАРА */
 .card {
-    background: white;
+    background: var(--white);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -217,7 +291,7 @@ img {
 
 .card__price {
     display: block;
-    color: #C7A17A;
+    color: var(--primary-color);
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 5px;
@@ -235,29 +309,29 @@ img {
 }
 
 .card__buttons {
-    margin-top: auto; /* Прижимает кнопки к низу карточки */
+    margin-top: auto;
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
-/* ПОДАРОЧНЫЙ НАБОР (Giftset)*/
+/* ПОДАРОЧНЫЙ НАБОР */
 .giftset__container {
     display: flex;
     align-items: center;
     gap: 40px;
-    background-color: white;
+    background-color: var(--white);
     padding: 40px;
     border-radius: 10px;
 }
 
 .giftset__img {
-    flex: 1; /* Занимает половину места */
+    flex: 1;
     max-width: 400px;
 }
 
 .giftset__info {
-    flex: 1; /* Занимает вторую половину */
+    flex: 1;
 }
 
 .giftset__desc {
@@ -271,91 +345,10 @@ img {
 
 /* FOOTER */
 .footer {
-    background-color: #EDF0F5;
+    background-color: var(--bg-color);
     text-align: center;
     padding: 20px;
     margin-top: 50px;
     color: #888;
     border-top: 1px solid #ddd;
-}
-
-
-/* АДАПТИВНОСТЬ (MEDIA QUERIES) - ПРАКТИКА 4 */
-
-/* 1. Планшеты и маленькие ноутбуки (меньше 1024px) */
-@media (max-width: 1024px) {
-    .hero__title {
-        font-size: 36px;
-    }
-    
-    /* Сетки перестраиваются в 2 колонки */
-    .features__grid, 
-    .products__grid,
-    .combo .products__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* Подарочный набор: в столбик */
-    .giftset__container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .giftset__img {
-        max-width: 80%;
-        margin: 0 auto 20px;
-    }
-}
-
-/* 2. Мобильные устройства (меньше 768px) */
-@media (max-width: 768px) {
-    /* Шапка меняет ориентацию */
-    .header__container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .header__actions {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .nav__list {
-        justify-content: center;
-    }
-    
-    .hero {
-        padding: 40px 15px;
-    }
-    
-    /* Все сетки в 1 колонку */
-    .features__grid, 
-    .products__grid,
-    .combo .products__grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* 3. Маленькие экраны (меньше 480px) */
-@media (max-width: 480px) {
-    .nav__list {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .header {
-        padding: 10px;
-    }
-
-    .hero__title {
-        font-size: 24px;
-    }
-    
-    .button {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 5px;
-    }
 }

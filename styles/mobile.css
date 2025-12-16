@@ -1,0 +1,121 @@
+/* --- Планшеты (1024px и меньше) --- */
+@media (max-width: 1024px) {
+    .hero__title {
+        font-size: 36px;
+    }
+    
+    /* Сетки перестраиваются в 2 колонки */
+    .features__grid, 
+    .products__grid,
+    .combo .products__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Подарочный набор: в столбик */
+    .giftset__container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .giftset__img {
+        max-width: 80%;
+        margin: 0 auto 20px;
+    }
+}
+
+/* --- Мобильные устройства (768px и меньше) --- */
+@media (max-width: 768px) {
+    /* Показываем гамбургер */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Мобильное меню (Выезжает справа) */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Спрятано за экраном */
+        width: 280px;
+        height: 100vh;
+        background: var(--white);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        padding: 80px 20px 20px;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    /* Класс active добавляется JS при открытии */
+    .nav.active {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav__item {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav__link {
+        display: block;
+        padding: 15px 0;
+        font-size: 18px;
+    }
+
+    /* Затемнение фона */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
+
+    .nav-overlay.active {
+        display: block;
+    }
+    
+    /* Шапка */
+    .header__container {
+        gap: 15px;
+    }
+    
+    .hero {
+        padding: 40px 15px;
+    }
+    
+    /* Все сетки в 1 колонку */
+    .features__grid, 
+    .products__grid,
+    .combo .products__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Очень маленькие экраны (480px и меньше) --- */
+@media (max-width: 480px) {
+    .nav {
+        width: 100%; /* Меню на весь экран */
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .hero__title {
+        font-size: 24px;
+    }
+    
+    .button {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
